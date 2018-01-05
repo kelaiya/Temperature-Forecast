@@ -1,11 +1,11 @@
-const LiveReloadPlugin = require('webpack-livereload-plugin')
-const isDev = process.env.NODE_ENV === 'development'
+// const LiveReloadPlugin = require('webpack-livereload-plugin')
+// const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = {
-  entry: './client/index.js',
+  entry: './client/index.js', // entry point-> ./client/index.js
   output: {
     path: __dirname,
-    filename: './public/bundle.js'
+    filename: './public/bundle.js'  // output-> ./public/bundle.js (webpack will create the output file)
   },
   devtool: 'source-map',
   module: {
@@ -15,6 +15,7 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader'
       },
+      // webpack will build anything that matches scss extension into a single css file
       {
         test: /\.scss$/,
         use: [
@@ -22,15 +23,11 @@ module.exports = {
           'css-loader',
           'sass-loader'
         ]
-      },
-      {
-        test: /\.svg$|\.ttf?|\.woff$|\.woff2|\.eof|\.eot/,
-        loader: 'file-loader'
       }
     ]
   },
   // When we're in development, we can use this handy live-reload plugin
   // to refresh the page for us every time we make a change to our client-side
   // files. It's like `nodemon` for the front end!
-  plugins: isDev ? [new LiveReloadPlugin({appendScriptTag: true})] : []
+  // plugins: isDev ? [new LiveReloadPlugin({appendScriptTag: true})] : []
 }

@@ -1,80 +1,34 @@
-# Boilermaker
+# GIPHY SEARCH
 
-*Good things come in pairs*
+## Introduction
+Looking for interesting gifs??? Here I presents GIPHY SEARCH! Users can find bunch of gifs of any field they want by using my GIPHY SEARCH app.
 
-Looking to mix up a backend with express/sequelize and a frontend with react/redux? That's `boilermaker`!
+## General Instruction
 
-Follow along with the workshop to make your own! This canonical version can serve as a reference, or a starting point all on its own.
+* Allow the user to enter any search term
+* Fetch a list of results from the GIPHY API
+* Allow the user to sort and filter based on as many parameters you'd like
 
-## Setup
+## Functionality
 
-To use this boilerplate, you'll need to take the following steps:
-
-* Don't fork or clone this repo! Instead, create a new, empty directory on your machine and `git init` (or create an empty repo on Github and clone it to your local machine)
-* Run the following commands:
-
-```
-git remote add boilermaker https://github.com/FullstackAcademy/boilermaker.git
-git fetch boilermaker
-git merge boilermaker/master
-```
-
-Why did we do that? Because every once in a while, `boilermaker` may be updated with additional features or bug fixes, and you can easily get those changes from now on by entering:
-
-```
-git fetch boilermaker
-git merge boilermaker/master
-```
-
-## Customize
-
-Now that you've got the code, follow these steps to get acclimated:
-
-* Update project name and description in `package.json` file
-* `npm install`, or `yarn install` - whatever you're into
-* Create two postgres databases: `boilermaker` and `boilermaker-test` (you can substitute these with the name of your own application - just be sure to go through and change the `package.json` and `server/db/db.js` to refer to the new names)
-  * By default, running `npm test` will use `boilermaker-test`, while regular development uses `boilermaker`
-* Create a file called `secrets.js` in the project root
-  * This file is `.gitignore`'d, and will *only* be required in your *development* environment
-  * Its purpose is to attach the secret env variables that you'll use while developing
-  * However, it's **very** important that you **not** push it to Github! Otherwise, *prying eyes* will find your secret API keys!
-  * It might look like this:
-
-  ```
-    process.env.GOOGLE_CLIENT_ID = 'hush hush'
-    process.env.GOOGLE_CLIENT_SECRET = 'pretty secret'
-    process.env.GOOGLE_CALLBACK = '/auth/google/callback'
-  ```
-
-* To use OAuth with Google, complete the step above with a real client ID and client secret from Google
-  * You can get them here: https://console.developers.google.com/apis/credentials
-* Finally, complete the section below to set up your linter
-
-## Linting
-
-Linters are fundamental to any project - they ensure that your code has a consistent style, which is critical to writing readable code.
-
-Everyone has their own style, so Boilermaker does not come prepackaged with a linter. However, we `strongly` recommend that you (and your team, if working in a group) decide on a style, and stick with it. Here's what you need to do:
-
-* `npm install -g eslint`
-* In the root of your project, `eslint --init`
-* You will then be prompted to choose how you want to configure ESLint. We recommend selecting the `Use a popular style guide option`. The existing Boilermaker code was written in accordance with the `Standard` style, but you may choose a different one if you don't like it.
-  * [Standard style guide](https://standardjs.com/)
-  * [Airbnb style guide](https://github.com/airbnb/javascript)
-  * [Google style guide](https://google.github.io/styleguide/jsguide.html)
-* This will add an `.eslintrc.js`, `.eslintrc.yaml`, or `.eslintrc.json` (depending on which you choose) - `.js` or `.json` will usually work fine. You may also need to install an appropriate eslint plugin specific for your code editor.
+* User can find any gifs 
+* User can sort gifs interms of itstitle and size
 
 ## Start
 
-`npm run start-dev` will make great things happen!
+* `npm install`
 
-If you want to run the server and/or webpack separately, you can also `npm run start-server` and `npm run build-client`.
+* `npm run start-dev` will make great things happen!
+
+* If you want to run the server and/or webpack separately, you can also `npm run start-server` and `npm run build-client`.
+
+* navigate to `http://localhost:8080/`
 
 From there, just follow your bliss.
 
 ## Deployment
 
-Ready to go world wide? Here's a guide to deployment!
+This app is deployed on Heroku.
 
 ### Prep
 1. Set up the [Heroku command line tools](https://devcenter.heroku.com/articles/heroku-cli)

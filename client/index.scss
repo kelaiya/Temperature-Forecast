@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  background-color: #ffb366;
 
   a {
     text-decoration: none;
@@ -17,5 +18,101 @@ body {
   form div {
     margin: 1em;
     display: inline-block;
+  }
+
+  .container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: "Georgia";
+    color: black;
+  }
+
+  .data{
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  #home{
+    text-align: center;
+    font-family: "Georgia";
+    font-style: bold;
+    font-size: 30px;
+    background-color: #bc7125;
+    border-top: 3px dotted #000;
+    border-bottom: 3px dotted #000;
+    box-shadow: inset 0 -1px 0 0 #000, inset 0 1px 0 0 #000, 0 1px 0 0 #000, 0 -1px 0 0 #000;
+    margin-bottom: 1px;
+
+  }
+
+  h1{
+    color: white;
+  }
+
+  .labelName{
+    font-size: 30px;
+    height: 55px;
+    color:black;
+  }
+
+  .h1{
+    font-size: 35px;
+    color: black;
+  }
+  #inputBox{
+    border: 3px solid white;
+    border-radius: 4px;
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    font-family: "Georgia";
+    font-size: 20px;
+  }
+  
+  .button{
+    height: 50px;
+    width: 150px;
+    color: grey;
+    background-color: light pink;
+    border: 2px solid white;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-family: "Georgia";
+    border-radius: 4px;
+  }
+
+  .button:hover {
+    background-color: pink;
+    color: light pink;
+  }
+
+  .sortclass{
+    border-radius: 4px;
+    width: 300px;
+    height: 50px;
+    float: right;
+    font-size: 24px;
+    font-family: "Georgia";
+  }
+
+  .images{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .singlePic{
+    width: calc(99.15% - 20px);
+    background-color: pink;
+    border: 5px solid white;
+    margin: 10px;
+    border-radius: 4px;
+  }
+
+  .image{
+    border: 5px solid white;
+    margin-top: 20px;
+    border-radius: 4px;
   }
 }
