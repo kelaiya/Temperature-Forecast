@@ -1,19 +1,6 @@
 body {
-  font-family: sans-serif;
-  background-color: #ffb366;
-
-  a {
-    text-decoration: none;
-  }
-
-  label {
-    display: block;
-  }
-
-  nav a {
-    display: inline-block;
-    margin: 1em;
-  }
+  
+  background-color: #3f4042;
 
   form div {
     margin: 1em;
@@ -24,8 +11,40 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
-    font-family: "Georgia";
+    /*font-family: "Georgia";*/
     color: black;
+  }
+
+  .screen{
+    height: 100vh;
+  }
+
+  .first{
+    background-color: #cc3d20;
+    color: white;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+   .h1{
+    color: white;
+    width: 50%;
+    text-align: left;
+    margin: 20px;
+    font-size: 50px;
+    font-family: Palatino, serif;
+  }
+
+  .h3{
+    color: white;
+    width: 50%;
+    text-align: left;
+    margin: 20px;
+    font-family: Tahoma, Geneva, sans-serif; 
+    font-weight: normal;
+    font-size: 18px;
   }
 
   .data{
@@ -33,43 +52,21 @@ body {
     font-weight: bold;
   }
 
-  #home{
-    text-align: center;
-    font-family: "Georgia";
-    font-style: bold;
-    font-size: 30px;
-    background-color: #bc7125;
-    border-top: 3px dotted #000;
-    border-bottom: 3px dotted #000;
-    box-shadow: inset 0 -1px 0 0 #000, inset 0 1px 0 0 #000, 0 1px 0 0 #000, 0 -1px 0 0 #000;
-    margin-bottom: 1px;
-
-  }
-
-  h1{
+   #inputBox{
+    border: 1px solid white;
+    width: 50%;
+    height: 50px;
+    text-align: left;
+    font-size: 24px;
+    background-color: #cc3d20; 
+    margin: 20px;
     color: white;
   }
 
-  .labelName{
-    font-size: 30px;
-    height: 55px;
-    color:black;
+  ::placeholder{
+    color: #e8721e;
   }
 
-  .h1{
-    font-size: 35px;
-    color: black;
-  }
-  #inputBox{
-    border: 3px solid white;
-    border-radius: 4px;
-    width: 150px;
-    height: 30px;
-    text-align: center;
-    font-family: "Georgia";
-    font-size: 20px;
-  }
-  
   .button{
     height: 50px;
     width: 150px;
@@ -77,7 +74,10 @@ body {
     background-color: light pink;
     border: 2px solid white;
     font-size: 24px;
+    margin-top: 20px;
     margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
     font-family: "Georgia";
     border-radius: 4px;
   }
@@ -87,32 +87,59 @@ body {
     color: light pink;
   }
 
-  .sortclass{
-    border-radius: 4px;
-    width: 300px;
-    height: 50px;
-    float: right;
-    font-size: 24px;
-    font-family: "Georgia";
+  .sec{
+    background-color: #3f4042;
+    display: flex;
+    justify-content: space-around;
   }
 
-  .images{
+  .box{
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    align-items: center;
+    color: white;
   }
 
-  .singlePic{
-    width: calc(99.15% - 20px);
-    background-color: pink;
-    border: 5px solid white;
-    margin: 10px;
-    border-radius: 4px;
+  .singleBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
-  .image{
-    border: 5px solid white;
-    margin-top: 20px;
+  .data1{
+    border: 2px solid white;
+    margin-left: 20px;
+    margin-right: 20px;
     border-radius: 4px;
+    width: 200px;
+    height: 200px;
+    vertical-align: middle;
+  }
+
+  .small{
+    font-size: 100%;
+    font-family: Georgia;
+    font-family: Tahoma, Geneva, sans-serif; 
+    font-weight: normal;
+    font-size: 18px;
+  }
+
+  .data2{
+    border-top: 2px solid white;
+    position: bottom;
+    margin: auto;
+    width: 200px;
+    height: 100px;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #large{
+    font-size: 300%;
+    font-family: Georgia;
+    font-family: Palatino, serif;
   }
 }

@@ -2,7 +2,6 @@
 import React, { Component } from 'react'
 import { Home } from './components'
 import history from './history'
-
 import {Router} from 'react-router'
 import {Route, Switch} from 'react-router-dom'
 
@@ -10,14 +9,9 @@ import {Route, Switch} from 'react-router-dom'
 export default class Routes extends Component {
 
   render() {
-
-    return (
+		return (
       <Router history={history}>
-     
-        	<Switch>
-        		<Route exact path='/images' component={Home} />
-        	</Switch>
-       
+        		<Route exact path='/' component={Home} />
       </Router>
     )
   }

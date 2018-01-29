@@ -1,125 +1,62 @@
-// This component is for users to search for their favourite gifs.
+// This component is for users to search weather of any place by entering the zipcode.
 
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchImage } from '../store';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Weather from './Weather';
+import { ClipLoader } from 'react-spinners'
 
-class Search extends Component {
-	constructor(props){
-		super(props)
+//"search" will be the zipcode which user will enter. Its an empty string initially.
+export default class Search extends Component {
+	constructor(){
+		super()
 		this.state = {
 			search : "",
-			sortKey: ""
+			loading: false
 		}
 		this.handleChange = this.handleChange.bind(this)
-		this.handleSortChange = this.handleSortChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this)
 	}
 
-	//This function will change the state after user enters their field of interest
+	//This function will change the state as user enters the zipcode.
 	handleChange(event){
+		event.preventDefault()
 		this.setState({
 			search : event.target.value
 		})
 	}
-
-	//This function will take the sortKey for sorting the gifs
-	handleSortChange(event){
-		this.setState({ sortKey: event.target.value})
-	}
-
-	//This function is for dispatching the function 
+	
+	//This function is for fetching data from OpenWeatherMap API. 
+	//If the zipcode entered is wrong, an alert will be shown saying the zipcode is invalid. 
 	handleSubmit(event){
 		event.preventDefault()
-		this.props.fetchImage(this.state.search)
+		this.setState({loading: true})
+		axios.get(`http://api.openweathermap.org/data/2.5/forecast?zip=${this.state.search}&units=imperial&APPID=0e45f13530634319edacbe0fb135f6f0`)
+      .then(res => res.data)
+      .then(search => this.setState({ search: search, loading: false }))
+     	.catch(error => {
+        alert("Enter a valid zipcode")
+      });
+     
 	}
 
-
-
+	//When user will click on submit button, a loading spinner will appear till the weather details comes.
 	render(){
-		var images = this.props.images; //images is the data came from the store
-		var emptyArray = [];
-		var pic = emptyArray.concat(images.data);  //pic will contains all the data
-		
-		//Sort the images with different options
-		if(this.state.sortKey == "sizeL-H"){
-			pic.sort((a, b) => Number(b.images.original.size) < Number(a.images.original.size) ? 1 : -1);
-		} else if(this.state.sortKey == "sizeH-L"){
-			pic.sort((a, b) => Number(a.images.original.size) < Number(b.images.original.size) ? 1 : -1);
-		}	else if(this.state.sortKey == "titleA-Z") {
-			pic.sort((a, b) => a.title > b.title);
-		} else if(this.state.sortKey == "titleZ-A") {
-			pic.sort((a, b) => b.title > a.title);
-		} 
-
 		return (
-		        <div className = "container">
-		        	<h1 className="h1"> Wanna See The Magic??? </h1>
-		        	
-		        	<div>
-		        		<form onSubmit={this.handleSubmit} className="data">
-		        			<label className="labelName"> Enter any field     :     
-		        				<input id="inputBox" type="text" onChange={this.handleChange} className="inputData" />
-		        			</label>
+		        <div>
+		        	<div className="screen first">
+		        		<h1 className="h1"> Weather app </h1>
+		        		<h3 className="h3"> Type in your zip code to see how aweful the weather is in your area this week </h3>
+		        		<form onSubmit={this.handleSubmit} className="data">     
+		        			<input id="inputBox" type="text" onChange={this.handleChange} placeholder="00000"/>
+		        			<ClipLoader color={'#123abc'} loading={this.state.loading} />
 		        			<button type="submit" className="button"> Search </button>
 		        		</form>
 		        	</div>
-		       		
-			      	<div>
-				      	{
-				      		images.data ? <div>
-						       <div className="sort">
-						       	<form onSubmit={this.handleSortSubmit} className="sortclass">
-						       		<select value={this.state.value} onChange={this.handleSortChange} className="sortclass">
-						       			<option> SORT </option>
-						       			<option value="sizeL-H">By Size Small-Large</option>
-						       			<option value="sizeH-L">By Size Large-Small</option>
-						       			<option value="titleA-Z"> By Title (A-Z) </option>
-						       			<option value="titleZ-A"> By Title (Z-A) </option>
-						       		</select>
-						       	</form>
-						       </div>
-				    			</div> : <h1 />
-				      	}
-			      	</div>
 
-							<div className="imagesMain">
-				        {
-				        	images.data ? <div className = "images"> {
-				        		pic.map((photo, index) => {
-				        			return(
-				        				<div key={index} className="singlePic">
-				        					<img className = "image" src = {photo.images["original"].url} />
-				        					<h3> Title : {photo.title} </h3>
-				        					<h3> Photo Size : {photo.images.original.size}px </h3>
-				        				</div>
-				        			)
-				        		})
-				        	}
-				        	</div> : <h1 />
-								}
-			      	</div>			      
+							<Weather search={this.state.search} />	      
 			      
 			      </div>
 		      )
-			}
-}
-
-const mapStateToProps = function(state){
-	// images is the value of state in store
-	return {
-		images : state.images
-	}
-
-}
-
-const mapDispatchToProps = function(dispatch) {
-	return {
-		fetchImage(pic){
-			dispatch(fetchImage(pic));
 		}
-	}
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
-
