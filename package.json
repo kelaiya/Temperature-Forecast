@@ -1,7 +1,6 @@
 {
   "name": "kelaiya",
   "version": "1.0.0",
-  "description": "Common Coding Challenge",
   "engines": {
     "node": ">= 7.0.0"
   },
