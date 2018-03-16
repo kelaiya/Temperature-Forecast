@@ -1,6 +1,5 @@
 {
   "name": "kelaiya",
-  "version": "1.0.0",
   "engines": {
     "node": ">= 7.0.0"
   },
